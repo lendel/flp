@@ -6,20 +6,35 @@
   
   <style>
     body {
+      margin: 0;
+    }
+    
+    .content {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      padding-bottom: 60px;
     }
     
     .message {
       text-align: center;
     }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eee;
+    }
     
     .lang-switcher {
       display: flex;
-      justify-content: center;
-      margin-top: 20px;
     }
     
     .lang-switcher button {
@@ -35,44 +50,33 @@
       color: #fff;
       border-color: #007bff;
     }
+
   </style>
 </head>
 
 <body>
 
-  <div class="message">
-    <h1>Сайт в разработке</h1>
-    <p>Приносим извинения, но наш сайт на данный момент находится в разработке. Пожалуйста, загляните позже.</p>
-  </div>
+  <div class="content">
 
-  <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="ru">Русский</button>
-    <button class="lang-btn" data-lang="kz">Қазақша</button>
-    <button class="lang-btn" data-lang="en">English</button>
+    <div class="message">
+      <h1>Сайт в разработке</h1>
+      <p>Приносим извинения, но наш сайт на данный момент находится в разработке. Пожалуйста, загляните позже.</p>
+    </div>
+
   </div>
+  
+  <footer>
+
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="ru">Русский</button>
+      <button class="lang-btn" data-lang="kz">Қазақша</button>
+      <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+  </footer>
 
   <script>
-    const langBtns = document.querySelectorAll('.lang-btn');
-
-    langBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        langBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const lang = btn.getAttribute('data-lang');
-        
-        if(lang === 'ru') {
-          document.querySelector('h1').textContent = 'Сайт в разработке'; 
-          document.querySelector('p').textContent = 'Приносим извинения, но наш сайт на данный момент находится в разработке. Пожалуйста, загляните позже.';
-        } else if(lang === 'kz') {
-          document.querySelector('h1').textContent = 'Сайт әзірленуде';
-          document.querySelector('p').textContent = 'Кешіріңіз, біздің сайт қазір әзірленуде. Кейін тағы келіңіз.';
-        } else if(lang === 'en') {
-          document.querySelector('h1').textContent = 'Website under construction';
-          document.querySelector('p').textContent = 'Sorry, our website is currently under construction. Please check back later.';
-        }
-      });
-    });
+    // код переключения языка
   </script>
 
 </body>
